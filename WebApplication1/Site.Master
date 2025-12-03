@@ -23,6 +23,9 @@
 
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                           [ <asp:HyperLink ID="ForgotPasswordLink" runat="server" 
+NavigateUrl="~/Account/ForgotPassword.aspx" 
+Text="Reset Password" /> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!

@@ -13,6 +13,12 @@
         Put content<asp:MultiView ID="MultiView1" runat="server">
             <asp:View ID="View1" runat="server">
                 <asp:Button ID="Button1" runat="server" Text="Button1" />
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Test">
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
             </asp:View>
             <asp:View ID="View2" runat="server">
                 <asp:Button ID="Button2" runat="server" Text="Button2" />
