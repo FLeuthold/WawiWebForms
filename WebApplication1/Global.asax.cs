@@ -21,11 +21,11 @@ namespace WebApplication1
                 Roles.CreateRole("User");
 
             // Add Fabio to Admin role
-            if (Membership.GetUser("fabio")!=null && !Roles.IsUserInRole("Fabio", "Admin"))
+            if (Membership.GetUser("fabio")!=null && !Roles.IsUserInRole("fabio", "Admin"))
                 Roles.AddUserToRole("fabio", "Admin");
 
             // Add another user to User role
-            if (Membership.GetUser("alice") != null && !Roles.IsUserInRole("Alice", "User"))
+            if (Membership.GetUser("alice") != null && !Roles.IsUserInRole("alice", "User"))
                 Roles.AddUserToRole("alice", "User");
         }
 

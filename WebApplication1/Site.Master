@@ -38,39 +38,34 @@
 
    <asp:LoginView ID="NavLoginView" runat="server">
         <AnonymousTemplate>
-            <asp:Menu ID="MenuAnon" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List">
+            <asp:Menu ID="MenuAnon" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List" IncludeStyleBlock="False">
                 <Items>
-                    <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
 
                 </Items>
                 
-<StaticSelectedStyle BackColor="#FFFF99" ForeColor="Black" Font-Bold="true" />
             </asp:Menu>
         </AnonymousTemplate>
         <RoleGroups>
             <asp:RoleGroup Roles="User">
                 <ContentTemplate>
-                    <asp:Menu ID="MenuUser" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List">
+                    <asp:Menu ID="MenuUser" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List" IncludeStyleBlock="False">
                         <Items>
                             <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password"/>
+                           
                             
                         
                         </Items>
-<StaticSelectedStyle BackColor="#FFFF99" ForeColor="Black" Font-Bold="true" />
+                        
                     </asp:Menu>
                 </ContentTemplate>
             </asp:RoleGroup>
             <asp:RoleGroup Roles="Admin">
                 <ContentTemplate>
-                    <asp:Menu ID="MenuAdmin" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List">
+                    <asp:Menu ID="MenuAdmin" runat="server" CssClass="menu" Orientation="Horizontal" RenderingMode="List" IncludeStyleBlock="False">
                         <Items>
                             <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                            <asp:MenuItem NavigateUrl="~/Admin/Dashboard.aspx" Text="Dashboard"/>
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                         </Items>
-    <StaticSelectedStyle BackColor="#FFFF99" ForeColor="Black" Font-Bold="true" />
                     </asp:Menu>
                 </ContentTemplate>
             </asp:RoleGroup>
