@@ -1,0 +1,100 @@
+﻿/* DEFAULT SITE.CSS FOR ASP.NET WEBFORMS (Visual Web Developer 2010) */
+
+body {
+    background-color: #fff;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    font-size: .8em;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+a:link, a:visited {
+    color: #034af3;
+}
+
+a:hover {
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+    margin-top: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+#header {
+    background-color: #5c87b2;
+    height: 80px;
+}
+
+    #header h1 {
+        color: #fff;
+        padding: 20px 0 0 20px;
+    }
+
+#menucontainer {
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    padding: 4px 0 4px 0;
+}
+
+    #menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        #menu ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+            #menu ul li a {
+                text-decoration: none;
+                color: #fff;
+                padding: 2px 6px;
+            }
+
+                #menu ul li a:hover {
+                    background-color: #fff;
+                    color: #5c87b2;
+                }
+
+#main {
+    padding: 20px;
+}
+
+#footer {
+    color: #999;
+    padding: 10px;
+    text-align: center;
+    font-size: .9em;
+}
