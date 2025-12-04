@@ -6,3 +6,6 @@ http://localhost:8082/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=
 
 
 C:\Users\fabio\source\repos\WebApplication1\WebApplication1
+
+http://localhost/webadmin/default.aspx?applicationPhysicalPath=C:\Users\fabio\source\repos\WebApplication1\WebApplication1\&applicationUrl=/
+

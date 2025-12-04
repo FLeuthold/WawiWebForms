@@ -44,7 +44,7 @@ namespace WebApplication1.Account
                     client.Credentials = new System.Net.NetworkCredential(smtpUser, smtpPass);
                     client.EnableSsl = true;
 
-                    var msg = new MailMessage("noreply@deineapp.ch", email);
+                    var msg = new MailMessage(smtpUser, email);
                     msg.Subject = "Neues Passwort";
                     msg.Body = $"Dein neues Passwort lautet: {newPassword}";
                     client.Send(msg);
