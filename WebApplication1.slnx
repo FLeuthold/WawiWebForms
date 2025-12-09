@@ -1,3 +1,8 @@
 <Solution>
+  <Project Path="MauiApp1/MauiApp1.Shared/MauiApp1.Shared.csproj" Id="237cc218-4933-4df0-82ee-1ab294d04ce1" />
+  <Project Path="MauiApp1/MauiApp1.Web/MauiApp1.Web.csproj" Id="0f1a2dbe-17cd-4785-a686-0c1aac3a9c85" />
+  <Project Path="MauiApp1/MauiApp1/MauiApp1.csproj" Id="792c3224-f940-4a76-bb5c-cc2c28470b25">
+    <Deploy />
+  </Project>
   <Project Path="WebApplication1/WebApplication1.csproj" Id="3cb1f2f7-bce9-4600-a07a-d7732314e761" />
 </Solution>
