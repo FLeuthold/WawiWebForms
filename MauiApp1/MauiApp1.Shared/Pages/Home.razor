@@ -73,7 +73,7 @@
     {
         <div class="tab-pane active">
             <table class="table">
-                @foreach (var auftrag in Auftraege)
+                @foreach (var auftrag in PagedAuftraege)
                 {
                     <tr>
                         <td>@auftrag.Id</td>
@@ -83,6 +83,26 @@
                     </tr>
                 }
             </table>
+            <!-- Pagination Controls -->
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                        <button class="page-link" @onclick="PrevPage">Previous</button>
+                        
+                    </li>
+                    @for (int i = 1; i <= TotalPages; i++)
+                    {
+                        var pageIndex = i;   // lokale Kopie
+                                             <li class="page-item @(CurrentPage == pageIndex ? "active" : "")">
+                                                 <button class="page-link" @onclick="@(() => GoToPage(pageIndex))">@pageIndex</button>
+                                             </li>
+                    }
+                    <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+                        
+                        <button class="page-link" @onclick="NextPage">Next</button>
+                    </li>
+                </ul>
+            </nav>
         </div>
     }
 </div>
@@ -124,5 +144,33 @@ Welcome to your new app running on <em>@factor</em> using <em>@platform</em>.
         new CheckItem { Text = "noch eins", IsChecked = true },
         new CheckItem { Text = "drittes", IsChecked = false }
     };
+}
+
+
+@code {
+    int PageSize = 10;
+    int CurrentPage = 1;
+
+    IEnumerable<Auftrag> PagedAuftraege =>
+        Auftraege.Skip((CurrentPage - 1) * PageSize).Take(PageSize);
+
+    int TotalPages => (int)Math.Ceiling((double)Auftraege.Count / PageSize);
+
+    void PrevPage()
+    {
+        if (CurrentPage > 1)
+            CurrentPage--;
+    }
+
+    void NextPage()
+    {
+        if (CurrentPage < TotalPages)
+            CurrentPage++;
+    }
+
+    void GoToPage(int page)
+    {
+        CurrentPage = page;
+    }
 }
 
