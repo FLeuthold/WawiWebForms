@@ -73,6 +73,30 @@
     {
         <div class="tab-pane active">
             <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-link p-0" @onclick="() => SortBy(nameof(Auftrag.Id))">
+                                Id @(SortColumn == "Id" ? (SortAscending ? "▲" : "▼") : "")
+                            </button>
+                        </th>
+                        <th>
+                            <button class="btn btn-link p-0" @onclick="() => SortBy(nameof(Auftrag.DruckerId))">
+                                DruckerId @(SortColumn == "DruckerId" ? (SortAscending ? "▲" : "▼") : "")
+                            </button>
+                        </th>
+                        <th>
+                            <button class="btn btn-link p-0" @onclick="() => SortBy(nameof(Auftrag.ArtikelId))">
+                                ArtikelId @(SortColumn == "ArtikelId" ? (SortAscending ? "▲" : "▼") : "")
+                            </button>
+                        </th>
+                        <th>
+                            <button class="btn btn-link p-0" @onclick="() => SortBy(nameof(Auftrag.Status))">
+                                Status @(SortColumn == "Status" ? (SortAscending ? "▲" : "▼") : "")
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
                 @foreach (var auftrag in PagedAuftraege)
                 {
                     <tr>
@@ -148,11 +172,12 @@ Welcome to your new app running on <em>@factor</em> using <em>@platform</em>.
 
 
 @code {
+    /*pagination*/
     int PageSize = 10;
     int CurrentPage = 1;
 
     IEnumerable<Auftrag> PagedAuftraege =>
-        Auftraege.Skip((CurrentPage - 1) * PageSize).Take(PageSize);
+        GetSortedAuftraege().Skip((CurrentPage - 1) * PageSize).Take(PageSize);
 
     int TotalPages => (int)Math.Ceiling((double)Auftraege.Count / PageSize);
 
@@ -172,5 +197,35 @@ Welcome to your new app running on <em>@factor</em> using <em>@platform</em>.
     {
         CurrentPage = page;
     }
+
+
+    /*sorting*/
+    IEnumerable<Auftrag> GetSortedAuftraege()
+    {
+        return SortColumn switch
+        {
+            "Id" => SortAscending ? Auftraege.OrderBy(a => a.Id) : Auftraege.OrderByDescending(a => a.Id),
+            "DruckerId" => SortAscending ? Auftraege.OrderBy(a => a.DruckerId) : Auftraege.OrderByDescending(a => a.DruckerId),
+            "ArtikelId" => SortAscending ? Auftraege.OrderBy(a => a.ArtikelId) : Auftraege.OrderByDescending(a => a.ArtikelId),
+            "Status" => SortAscending ? Auftraege.OrderBy(a => a.Status) : Auftraege.OrderByDescending(a => a.Status),
+            _ => Auftraege
+        };
+    }
+
+
+    void SortBy(string column)
+    {
+        if (SortColumn == column)
+            SortAscending = !SortAscending; // toggle direction
+        else
+        {
+            SortColumn = column;
+            SortAscending = true;
+        }
+        CurrentPage = 1; // reset to first page
+    }
+
+    string SortColumn = "Id";
+    bool SortAscending = true;
 }
 
